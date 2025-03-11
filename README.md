@@ -7,7 +7,7 @@ Repository for Stochastic Processes TA course (Spring 2025). Contains lecture no
   - <S , P , R, $\gamma$ >
   - E[R_{t+1} | S_{t} = s]$
   - $G_t = \sum_i^t R_i$
-  - $ \vec{v} = E[G_t|S_t = s]$
+  - $ v(s) = E[G_t|S_t = s]$
   - Use FSA to compute $v(s)$ (Analytically) - Bellman
   - Large n computationally expensive -> Value iteration
 - Markov Decision Process - frozen lake in gym
