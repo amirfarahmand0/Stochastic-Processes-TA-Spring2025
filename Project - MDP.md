@@ -1,12 +1,12 @@
 - Markov Reward Process
-  - <S , P , R, $\gamma$>
+  - <S , P , R, $\gamma$ >
   - E[R_{t+1} | S_{t} = s]$
   - $G_t = \sum_i^t R_i$
   - $ \vec{v} = E[G_t|S_t = s]$
   - Use FSA to compute $v(s)$ (Analytically) - Bellman
   - Large n computationally expensive -> Value iteration
 - Markov Decision Process - frozen lake in gym
-  - Defenition : <S, A , P, R, $\gamma$>
+  - Defenition : <S, A , P, R, $\gamma$ >
   - Policy $\pi(a|s)$
   - $v_{\pi}(s)$ state-value function or simply value fanction
   - Derieve Bellman for $v_{\pi}$
