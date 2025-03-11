@@ -10,5 +10,5 @@
   - Policy $\pi(a|s)$
   - $v_{\pi}(s)$ state-value function or simply value fanction
   - Derieve Bellman for $v_{\pi}$
-  - without direct solution, find optimal value function $v^*}$ (using value iteration)
+  - without direct solution, find optimal value function $v^*$ (using value iteration)
   - Derive a deterministic policy using converged value function 
