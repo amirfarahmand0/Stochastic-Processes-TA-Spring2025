@@ -1,0 +1,197 @@
+%Document--------------------------------------------------------------------------------------
+\documentclass[12pt]{extreport}
+
+%Packages--------------------------------------------------------------------------------------
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikzit}
+\input{Homework.tikzstyles}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{graphicx}
+% \usepackage{yfonts}
+\usepackage{float}
+% \usepackage{dsfont}
+\usepackage[textwidth=17cm, textheight=23cm]{geometry}
+% \usepackage[nottoc]{tocbibind}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\usepackage{url}
+% \usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{ctable}
+\usepackage{caption}
+\usepackage{pifont}
+\usepackage{array}
+% \usepackage{adjustbox}
+\usepackage{booktabs}
+
+
+%Theorems--------------------------------------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{prob}{Problem}
+\renewcommand{\baselinestretch}{1.25}
+
+\begin{document}
+	%Title-------------------------------------------------------------------------------------
+	\begin{figure}
+		\centering \includegraphics[height=3cm]{Logo.png}
+	\end{figure}
+    \vspace{-10mm}
+	\begin{center}
+	\textbf{Faculty of Sciences}
+		\\
+	\textbf{Faculty of Mathematics, Statistics, and Computer Science}
+		\\
+		% EDIT HERE:
+	\textbf{\Large Stochastic Process Assignment 3}\\
+		% EDIT HERE:
+	Due Date: Wednesday, 9th April
+	\par\noindent\rule{\textwidth}{0.4pt}
+	\end{center}
+	
+	\begin{prob}
+        \noindent Let $X_n, n \geq 0$, be a branching chain and suppose that the associated random variable $\xi$ has finite variance $\sigma^2$. 
+        
+        \begin{enumerate}
+            \item Show that
+            \[
+            E[X_{n+1}^2 \mid X_n = x] = x\sigma^2 + x^2\mu^2.
+            \]
+            
+            \item Use Part 1 to show that
+            \[
+            E_x(X_{n+1}^2) = x\mu^n\sigma^2 + \mu^2 E_x(X_n^2).
+            \]
+            
+            \item Show that
+            \[
+            E_x(X_n^2) = x\sigma^2(\mu^{n-1} + \dots + \mu^{2(n-1)}) + x^2\mu^{2n}, \quad n \geq 1.
+            \]
+            
+            \item Show that if there are $x$ particles initially, then for $n \geq 1$
+            \[
+            \text{Var} (X_n) =
+            \begin{cases}
+            x\sigma^2 \mu^{n-1} \left(\frac{1 - \mu^n}{1 - \mu}\right), & \mu \neq 1, \\
+            n x \sigma^2, & \mu = 1.
+            \end{cases}
+            \]
+        \end{enumerate}
+        \noindent \textbf{Important Note:} You \textbf{cannot} use induction to prove these results.
+	\end{prob}
+	
+	\vspace{0.2cm}
+    \begin{prob}
+        Consider a Markov chain with the following transition matrix:
+        
+        \[
+        P =
+        \begin{bmatrix}
+        0.8 & 0 & 0 & 0 & 0 & 0.2 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+        0.1 & 0 & 0.9 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0.5 & 0 & 0 & 0.5 \\
+        0 & 0.3 & 0 & 0 & 0.7 & 0 & 0 \\
+        0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+        0 & 0.5 & 0 & 0 & 0 & 0.5 & 0
+        \end{bmatrix}
+        \]
+        
+        Name the state space as $\{1, 2, \cdots, 7\}$, draw the transition graph and classify the states by decomposing the state space to be the disjoint union of transient sets and closed irreducible sets of recurrent states. 
+        
+        The detailed reasonings as given in lectures are necessary.
+
+    \end{prob}
+    \vspace{0.2cm}
+    \begin{prob}
+    
+    Let $x$ and $y$ be distinct states of a Markov chain having $d < \infty$ states and suppose that $x$ leads to $y$. Let $n_0$ be the smallest positive integer such that $P^{n_0}(x, y) > 0$ and let $x_1, \dots, x_{n_0-1}$ be states such that
+    
+    \[
+    P(x, x_1) P(x_1, x_2) \cdots P(x_{n_0-2}, x_{n_0-1}) P(x_{n_0-1}, y) > 0.
+    \]
+    
+    \begin{enumerate}
+        \item Show that $x, x_1, \dots, x_{n_0-1}, y$ are distinct states.
+        
+        \item Use (1) to show that $n_0 \leq d - 1$.
+        
+        \item Conclude that $P_x(T_y \leq d - 1) > 0$.
+    \end{enumerate}
+    
+        \end{prob}
+        \vspace{0.2cm}
+    
+        \begin{prob}
+Consider a branching chain $\{X_n\}_{n=0}^{\infty}$ with the offspring distribution $(p_k)_{k \geq 0}$. Let $X_0 = 1$.
+
+\begin{enumerate}
+    \item Assume $p_0 = 0.25$, $p_1 = 0.4$, $p_2 = 0.35$. What is the probability that the population becomes extinct in the second generation (i.e., $X_2 = 0$ but $X_1 \neq 0$)? What is the probability that the population becomes extinct eventually?
+    
+    \item Assume $p_k = p(1 - p)^k$, $k \geq 0$, where $0 < p < 1$. Find the extinction probability $\rho$.
+\end{enumerate}
+    \end{prob}
+
+    \vspace{0.2cm}
+    \begin{prob}
+Let $X_n, n \geq 0$, be a Markov chain whose state space $\mathcal{S}$ is a subset of $\{0,1,2,\dots\}$ and whose transition function $P$ is such that
+
+\[
+\sum_y y P(x, y) = A x + B, \quad x \in \mathcal{S},
+\]
+
+for some constants $A$ and $B$.
+
+\begin{enumerate}
+    \item Show that 
+    \[
+    E [X_{n+1}] = A E [X_n] + B.
+    \]
+    
+    \item Show that if $A \neq 1$, then
+    \[
+    E [X_n] = \frac{B}{1 - A} + A^n \left( E [X_0] - \frac{B}{1 - A} \right).
+    \]
+    
+    \item Let $X_n, n \geq 0$, be the Ehrenfest chain on $\{0, 1, \dots, d\}$. Show that the assumption of Part 1 holds and use that result to compute $E_x(X_n)$.
+\end{enumerate}
+    \end{prob}
+    \begin{prob}
+        A component of a computer has an active life, measured in discrete units, that is a random variable \(T\), where \(P(T = k) = a_k\) for \(k = 1, 2, \dots \). Suppose one starts with a fresh component, and each component is replaced by a new component upon failure. Let \(X_n\) be the age of the component in service at time \(n\). Then \(\{X_n\}\) is a success runs Markov chain.
+    \begin{itemize}
+        \item[(a)] Specify the probabilities \(p_i\), and \(q_i\).
+        \item[(b)] A "planned replacement" policy calls for replacing the component upon its failure or upon its reaching age \(N\), whichever occurs first. Specify the success runs probabilities \(p\) and \(q\), under the planned replacement policy. 
+    \end{itemize} 
+    \end{prob}
+
+    \begin{prob}
+         Let \(X_n\) be a Markov chain with transition probabilities \(P_{ij}\). We are given a "discount factor" \(\beta\) with \(0 < \beta < 1\) and a cost function \(c(i)\), and we wish to determine the total expected discounted cost starting from state \(i\), defined by
+
+        \[h_i = E\left[\sum_{n=0}^{\infty} B^n c(X_n) \ | \ X_0 = i\right] \]
+
+        Using a first step analysis, show that \(h_i\) satisfies the system of linear equations
+
+        \[h_i = c(i) + \beta \sum_j P_{ij} h_j\] 
+        for all states \(i\).
+    \end{prob}
+
+    \begin{prob}
+        A certain Markov chain that arises in genetics has states \(\{0, 1, \dots\ , 2d\}\) and transition function
+
+        \[P(x,y) = \binom{2d}{y}\left(\frac{x}{2d}\right)^y\left(1 - \frac{x}{2d}\right)^{2d-y}\]
+
+        Find \(\rho_{\{0\}}(x) \ , \ 0 < x < 2d\).
+    \end{prob}
+    \begin{prob}
+        Consider a gambler's ruin chain on \(\{0, 1, \dots\ , d\}\). Find \[P_x\left(T_0 < T_d\right) \ , \qquad  0 < x < d\]
+    \end{prob}
+
+    \begin{prob}
+        $A$ and $B$ are playing a game on coins, in each around they both toss a coin, if coin both coins land on the same side $A$ wins both coins, otherwise $B$ wins both coins. suppose $A$ has $m$ coins and $B$ has $n$ coins, find expected value of the numbers of games to be played until one person loses all of their coin's. 
+    \end{prob}
+\end{document}
