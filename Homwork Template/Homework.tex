@@ -161,6 +161,57 @@ for some constants $A$ and $B$.
     \item Let $X_n, n \geq 0$, be the Ehrenfest chain on $\{0, 1, \dots, d\}$. Show that the assumption of Part 1 holds and use that result to compute $E_x(X_n)$.
 \end{enumerate}
     \end{prob}
+
+    \begin{prob}
+        Consider these Markov chains having transition matrixes
+    \[ P(x,y) =
+    \begin{array}{c@{\hspace{2pt}}c}
+        & 
+        \begin{array}{ccccccc}
+            0 & 1 & 2 & 3 & 4 & 5 & 6
+        \end{array} \\
+        \begin{array}{c}
+            0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6
+        \end{array} &
+        \left[
+        \begin{array}{ccccccc}
+            \frac{1}{2} & 0   & \frac{1}{8} & \frac{1}{8} & 0   & 0   & 0   \\
+            0   & 1   & 0   & 0   & 0   & 0   & 0   \\
+            0   & 0   & 0   & 1   & 0   & 0   & 0   \\
+            0   & 1   & 0   & 0   & 0   & 0   & 0   \\
+            0   & 0   & 0   & 0   & \frac{1}{2} & 0   & \frac{1}{2} \\
+            0   & 0   & 0   & 0   & \frac{1}{2} & \frac{1}{2} & 0   \\
+            0   & 0   & 0   & 0   & 0   & \frac{1}{2} & \frac{1}{2}
+        \end{array}
+        \right]
+    \end{array} \ , \qquad 
+    P(x,y) = \begin{array}{c@{\hspace{2pt}}c}
+    & 
+    \begin{array}{cccccc}
+        0 & 1 & 2 & 3 & 4 & 5
+    \end{array} \\
+    \begin{array}{c}
+        0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5
+    \end{array} &
+    \left[
+    \begin{array}{cccccc}
+        \frac{1}{2} & \frac{1}{2} & 0   & 0   & 0   & 0   \\
+        \frac{1}{3} & \frac{2}{3} & 0   & 0   & 0   & 0   \\
+        0   & 0   & \frac{1}{8} & 0   & \frac{7}{8} & 0   \\
+        \frac{1}{4} & \frac{1}{4} & 0   & \frac{1}{4} & 0   & \frac{1}{4} \\
+        0   & 0   & \frac{1}{3} & 0   & \frac{1}{4} & \frac{5}{12} \\
+        0   & \frac{1}{5} & 0   & \frac{1}{3} & \frac{1}{5} & \frac{2}{5}
+    \end{array}
+    \right]
+\end{array} \]
+\begin{itemize}
+    \item[(a)] Determine which states are transient and which states are recurrent for both chains.
+    \item[(b)] For the chain with state space \(\{0, 1, \ldots, 6\}\) Find $\rho_{0y}$, $y = 0, \ldots, 6$.
+    \item[(c)] For the chain on \(\{0,1 , \dots\ , 5 \}\) Find $\rho_{\{0,1\}}(x)$, $x = 0, \ldots, 5$.
+\end{itemize}
+
+    \end{prob}
+
     \begin{prob}
         A component of a computer has an active life, measured in discrete units, that is a random variable \(T\), where \(P(T = k) = a_k\) for \(k = 1, 2, \dots \). Suppose one starts with a fresh component, and each component is replaced by a new component upon failure. Let \(X_n\) be the age of the component in service at time \(n\). Then \(\{X_n\}\) is a success runs Markov chain.
     \begin{itemize}
@@ -187,11 +238,12 @@ for some constants $A$ and $B$.
 
         Find \(\rho_{\{0\}}(x) \ , \ 0 < x < 2d\).
     \end{prob}
-    \begin{prob}
-        Consider a gambler's ruin chain on \(\{0, 1, \dots\ , d\}\). Find \[P_x\left(T_0 < T_d\right) \ , \qquad  0 < x < d\]
-    \end{prob}
-
+    
     \begin{prob}
         $A$ and $B$ are playing a game on coins, in each around they both toss a coin, if coin both coins land on the same side $A$ wins both coins, otherwise $B$ wins both coins. suppose $A$ has $m$ coins and $B$ has $n$ coins, find expected value of the numbers of games to be played until one person loses all of their coin's. 
+    \end{prob}
+    
+    \begin{prob}
+        Consider a gambler's ruin chain on \(\{0, 1, \dots\ , d\}\). Find \[P_x\left(T_0 < T_d\right) \ , \qquad  0 < x < d\]
     \end{prob}
 \end{document}
