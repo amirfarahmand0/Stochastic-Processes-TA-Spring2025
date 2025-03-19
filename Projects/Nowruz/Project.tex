@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{makeidx}
+
+\usepackage{tikz}
+\usepackage{fontspec} % برای پشتیبانی از فونت‌های فارسی
+
+
+\ExplSyntaxOn
+\cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D
+\ExplSyntaxOff
+\usepackage{mathtools}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=[rgb]{0,0,0.6953125},
+	filecolor=[rgb]{0,0,0.6953125},      
+	urlcolor=[rgb]{0,0,0.6953125},
+	citecolor=[rgb]{0,0,0.6953125}
+}
+\newcommand{\hint}[1]{
+	\begin{flushleft}
+		\hyperlink{#1}{راهنمایی}
+	\end{flushleft}
+}
+% \usepackage{UTProblemSet} % Uncomment this if the package is installed
+% Replace with a standard package or custom definitions if unavailable
+\begin{document}
+			%%%%%%%%%%%%%%%%%%% سربرگ سند %%%%%%%%%%%%%%%%%%%
+	\pagestyle{empty}
+	\heading
+	{
+		فرآیندهای تصادفی
+	}
+	{
+		دکتر صفری
+	}
+	{زمستان 1403}
+	{16 فروردین}
+	{
+		پروژه نوروزی
+	}
+	\inspiringQuotation
+	{Probability theory is nothing but common sense reduced to calculation. }
+	{Pierre-Simon Laplace (1749-1827)}
+	
+			%%%%%%%%%%%%%%%%%%% بخش سوالات %%%%%%%%%%%%%%%%%%%
+
+
+    \section{فرآیند تصمیم مارکف}
+    \subsection{فرآیند پاداش مارکف}
+
+\end{document}

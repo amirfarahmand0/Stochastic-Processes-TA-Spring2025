@@ -1,6 +1,6 @@
 - Markov Reward Process
-  - <S , P , R, $\gamma$ >
-  - E[R_{t+1} | S_{t} = s]$
+  - < S , P , R, $\gamma$ >
+  - $E[R_{t+1} | S_{t} = s]$
   - $G_t = \sum_i^t R_i$
   - $ \vec{v} = E[G_t|S_t = s]$
   - Use FSA to compute $v(s)$ (Analytically) - Bellman
