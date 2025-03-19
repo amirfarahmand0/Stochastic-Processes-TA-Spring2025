@@ -3,10 +3,6 @@
 \usepackage{amsmath}
 \usepackage{makeidx}
 
-\usepackage{tikz}
-\usepackage{fontspec} % برای پشتیبانی از فونت‌های فارسی
-
-
 \ExplSyntaxOn
 \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D
 \ExplSyntaxOff
@@ -24,8 +20,7 @@
 		\hyperlink{#1}{راهنمایی}
 	\end{flushleft}
 }
-% \usepackage{UTProblemSet} % Uncomment this if the package is installed
-% Replace with a standard package or custom definitions if unavailable
+\usepackage{UTProblemSet}
 \begin{document}
 			%%%%%%%%%%%%%%%%%%% سربرگ سند %%%%%%%%%%%%%%%%%%%
 	\pagestyle{empty}
@@ -48,7 +43,10 @@
 			%%%%%%%%%%%%%%%%%%% بخش سوالات %%%%%%%%%%%%%%%%%%%
 
 
-    \section{فرآیند تصمیم مارکف}
+    \section{
+        فرآیند تصمیم مارکف متناهی
+    }   
     \subsection{فرآیند پاداش مارکف}
-
+    یک فرآیند تصادفی مارکف \(\{ X_n \}\) با تابع انتقال \(P(X_n = i | X_{n-1} = j) = p(i,j)\) را در نظر بگیرید. متناظر با هر وضعیتی که فرآیند در آن قرار دارد یک پاداش (تصادفی یا قطعی) تعلق می گیرد.
+    \(R_t = R(X_t)\) یا \(P(R_t= r | X_t=x) = p_r(x)\)
 \end{document}
