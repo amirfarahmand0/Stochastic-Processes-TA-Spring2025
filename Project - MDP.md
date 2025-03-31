@@ -1,20 +1,14 @@
-### Mini Project 1
+### Mini Project 1: Value Iteration in a Grid Environment
 
-In this project, students will become familiar with the basics of reinforcement learning and implement the **value iteration** algorithm in a **Grid environment**.
+In this project, students will be introduced to the basics of **reinforcement learning** by implementing the **Value Iteration** algorithm on a discrete Grid environment (e.g., FrozenLake from OpenAI Gym).
 
-- **Markov Reward Process**
-  - ⟨ S , P , R, $\gamma$ ⟩
-  - $E[R_{t+1} \mid S_t = s]$
-  - $G_t = \sum_i^t R_i$
-  - $\vec{v}(s) = \mathbb{E}[G_t \mid S_t = s]$
-  - Use FSA to compute $v(s)$ analytically (Bellman equation)
-  - For large $n$, exact solution becomes computationally expensive → use **value iteration**
+### Objectives
+- Understand how agents interact with an environment in the RL framework
+- Implement the **Value Iteration** algorithm
+- Derive an optimal deterministic policy from the value function
+- Test the implementation in a stochastic grid-based environment
 
-- **Markov Decision Process** – *FrozenLake environment in OpenAI Gym*
-  - Definition: ⟨ S, A, P, R, $\gamma$ ⟩
-  - Policy $\pi(a \mid s)$
-  - $v_{\pi}(s)$: state-value function (or simply, value function)
-  - Derive the **Bellman equation** for $v_{\pi}$
-  - Without direct solution, find optimal value function $v^*$ using **value iteration**
-  - Derive a **deterministic policy** using the converged value function
-
+### Deliverables
+- Python implementation of value iteration
+- Visualization or output logs showing convergence of the value function
+- A short report explaining the algorithm and results
