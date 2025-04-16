@@ -6,7 +6,16 @@
     amssymb
 }
 
+\usepackage{cancel}
+
 \usepackage{UTSolution}
+
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{
+	tikz,
+	pgfplots
+}
 
 \begin{document}
 	%%%%%%%%%%%%%%%%%%% سربرگ سند %%%%%%%%%%%%%%%%%%%
@@ -18,9 +27,218 @@
     {توسط امیرحسین فرهمند و پوریا عصاره‌ها}
     {پاسخ تمرین سری سوم}
 	%%%%%%%%%%%%%%%%%%% بخش سوالات %%%%%%%%%%%%%%%%%%%
-	\begin{problem}
-        
+	\begin{problem} % 1
 	\end{problem}
+	
+	\begin{problem} % 2
+	\end{problem}
+	
+	\begin{problem} % 3
+	\end{problem}
+	
+	\begin{problem} % 4
+	\end{problem}
+	
+	\begin{problem} % 5
+	\end{problem}
+	
+	\begin{problem} % 6
+		زنجیره‌های مارکوف زیر با ماتریس‌های انتقال داده‌شده را در نظر بگیرید:
+		\[ 
+		P_1(x,y) =
+		\begin{array}{c@{\hspace{2pt}}c}
+			& 
+			\begin{array}{ccccccc}
+				0 & 1 & 2 & 3 & 4 & 5 & 6
+			\end{array} \\
+			\begin{array}{c}
+				0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6
+			\end{array} &
+			\left[
+			\begin{array}{ccccccc}
+				\frac{1}{2} & 0   & \frac{1}{8} & \frac{1}{4} & \frac{1}{8}   & 0   & 0   \\
+				0   & 0   & 1   & 0   & 0   & 0   & 0   \\
+				0   & 0   & 0   & 1   & 0   & 0   & 0   \\
+				0   & 1   & 0   & 0   & 0   & 0   & 0   \\
+				0   & 0   & 0   & 0   & \frac{1}{2} & 0   & \frac{1}{2} \\
+				0   & 0   & 0   & 0   & \frac{1}{2} & \frac{1}{2} & 0   \\
+				0   & 0   & 0   & 0   & 0   & \frac{1}{2} & \frac{1}{2}
+			\end{array}
+			\right]
+		\end{array} \ , \qquad 
+		P_1(x,y) = \begin{array}{c@{\hspace{2pt}}c}
+		& 
+		\begin{array}{cccccc}
+			0 & 1 & 2 & 3 & 4 & 5
+		\end{array} \\
+		\begin{array}{c}
+			0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5
+		\end{array} &
+		\left[
+		\begin{array}{cccccc}
+			\frac{1}{2} & \frac{1}{2} & 0   & 0   & 0   & 0   \\
+			\frac{1}{3} & \frac{2}{3} & 0   & 0   & 0   & 0   \\
+			0   & 0   & \frac{1}{8} & 0   & \frac{7}{8} & 0   \\
+			\frac{1}{4} & \frac{1}{4} & 0   & \frac{1}{4} & 0   & \frac{1}{4} \\
+			0   & 0   & \frac{3}{4 } & 0   & \frac{1}{4} & 0 \\
+			0   & \frac{1}{5} & 0   & \frac{1}{5} & \frac{1}{5} & \frac{2}{5}
+		\end{array}
+		\right]
+		\end{array} \]
+		\begin{itemize}
+		\item[(a)] تعیین کنید کدام حالت‌ها گذرا و کدام حالت‌ها بازگشتی هستند. 
+		\\ {\color{blue}
+		\begin{figure}[h!]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+				\centering
+				\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=2cm, scale=0.8, transform shape]
+					\tikzstyle{state}=[circle, draw=black, thick, fill=white, minimum size=8mm]
+
+					% Graph for P_1
+					\node[state] (A) at (90:3cm) {0};
+					\node[state] (B) at (40:3cm) {1};
+					\node[state] (C) at (-10:3cm) {2};
+					\node[state] (D) at (-60:3cm) {3};
+					\node[state] (E) at (-110:3cm) {4};
+					\node[state] (F) at (-160:3cm) {5};
+					\node[state] (G) at (140:3cm) {6};
+
+					\path 
+					(A) edge[loop above] node{$\frac{1}{2}$} (A)
+					(A) edge node{$\frac{1}{8}$} (C)
+					(A) edge node{$\frac{1}{4}$} (D)
+					(A) edge node{$\frac{1}{8}$} (E)
+					(B) edge[loop right] node{$0$} (B)
+					(B) edge node{$1$} (C)
+					(C) edge node{$1$} (D)
+					(D) edge node{$1$} (B)
+					(E) edge[loop below] node{$\frac{1}{2}$} (E)
+					(E) edge node{$\frac{1}{2}$} (G)
+					(F) edge node{$\frac{1}{2}$} (E)
+					(F) edge[loop left] node{$\frac{1}{2}$} (F)
+					(G) edge node{$\frac{1}{2}$} (F)
+					(G) edge[loop above] node{$\frac{1}{2}$} (G);
+
+				\end{tikzpicture}
+				\caption{گراف حالات $P_1$.}
+			\end{minipage}
+			\hfill
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=2cm, scale=0.8, transform shape]
+					\tikzstyle{state}=[circle, draw=black, thick, fill=white, minimum size=8mm]
+
+					% Graph for P_2
+					\node[state] (A) at (90:3cm) {0};
+					\node[state] (B) at (40:3cm) {1};
+					\node[state] (C) at (-10:3cm) {2};
+					\node[state] (E) at (-60:3cm) {4};
+					\node[state] (D) at (-110:3cm) {3};
+					\node[state] (F) at (-160:3cm) {5};
+
+					\path 
+					(A) edge[loop above] node{$\frac{1}{2}$} (A)
+					(A) edge node{$\frac{1}{2}$} (B)
+					(B) edge[loop right] node{$\frac{2}{3}$} (B)
+					(B) edge node{$\frac{1}{3}$} (A)
+					(C) edge[loop below] node{$\frac{1}{8}$} (C)
+					(C) edge node{$\frac{7}{8}$} (E)
+					(D) edge[loop left] node{$\frac{1}{4}$} (D)
+					(D) edge node{$\frac{1}{4}$} (A)
+					(D) edge node{$\frac{1}{4}$} (B)
+					(D) edge node{$\frac{1}{4}$} (F)
+					(E) edge[loop below] node{$\frac{1}{4}$} (E)
+					(E) edge node{$\frac{3}{4}$} (C)
+					(F) edge[loop above] node{$\frac{2}{5}$} (F)
+					(F) edge node{$\frac{1}{5}$} (B)
+					(F) edge node{$\frac{1}{5}$} (D)
+					(F) edge node{$\frac{1}{5}$} (E);
+
+				\end{tikzpicture}
+				\caption{گراف حالات $P_2$.}
+			\end{subfigure}
+		\end{figure}
+		\[\begin{array}{ll|ll}
+			P_1 & & P_2 & \\ \hline
+			\{0\} & \textrm{گذرا}  & \{0,1\} & \textrm{بازگردنده} \\
+			\{1,2,3\} & \textrm{بازگردنده} & \{2,4\} & \textrm{بازگردنده} \\
+			\{4,5,6\} & \textrm{بازگردنده} & \{3,5\} & \textrm{گذرا}\\
+		\end{array}\]
+		از شکل گراف ها می‌توان تشخیص داد حالاتی که با ورود به آن ها خروج نخواهیم داشت قطعا بازگردنده هستند. در زنجیره اول حالت 0 به حالت 1 می‌رود و از آنجا به حالت 2 و 3 می‌رود و از آنجا به هیچ طریقی به حالت 0 بازنمی‌گردد. پس حالت 0 گذرا است. در زنجیره دوم، حالت 0 به حالت 1 می‌رود و از آنجا به حالت 0 برمی‌گردد. پس حالت 0 بازگردنده است.
+		}
+		\item[(b)] برای زنجیره با فضای حالت \(\{0, 1, \ldots, 6\}\)، $\rho_{0y}$ را برای $y = 0, \ldots, 6$ بیابید. \\
+		{\color{blue}
+		برای کلاس حالات بازگردنده میدانیم برای هر \(i,j\) در آن کلاس \(\rho_{ii} = \rho_{ij} = \rho_{ji} = 1 \) و اگر \(x \nrightarrow y\) آنگاه \(\rho_{xy} = 0\) 
+		با تحلیل قدم اول یعنی :
+		\begin{eqnarray*}
+			\rho_{00} &=& P_{00} + \sum_{k \neq 0} P_{0k}\rho_{k0} \\
+			&=& \frac{1}{2} + \frac{1}{2}\cancelto{0}{\rho_{10}} + \frac{1}{8}\cancelto{0}{\rho_{20}} + \frac{1}{4}\cancelto{0}{\rho_{30}} + \frac{1}{8}\cancelto{0}{\rho_{40}} \\
+			\rho_{01} &=& \frac{1}{2}\rho_{01} + \cancelto{0}{P_{01}} + \frac{1}{8}\cancelto{1}{\rho_{21}} + \frac{1}{4}\cancelto{1}{\rho_{31}} + \frac{1}{8}\cancelto{0}{\rho_{41}} \\
+			\frac{1}{2} \rho_{01} &=& \frac{3}{8} \quad \Rightarrow \quad \rho_{01} = \frac{3}{4} = \rho_{02} = \rho_{03} = \rho_{0[1]} \\
+			\rho_{04} &=& \frac{1}{8} + \frac{1}{2} \rho_{04} + \cancelto{0}{\rho_{[1]4}} \quad \Rightarrow \quad \rho_{0[4]} = \rho_{05} = \rho_{06}= \frac{1}{4}
+		\end{eqnarray*}
+		}
+		\item[(c)] برای زنجیره روی \(\{0,1 , \dots\ , 5 \}\)، $\rho_{\{0,1\}}(x)$ را برای $x = 0, \ldots, 5$ بیابید.
+		\\
+		{
+			\color{blue} می‌دانیم 0 و 1 در یک کلاس ارتباطی هستند. \(\rho_{\{0,1\} } (x)\) ینی با شروع از \(x\) به کلاس \([1]\) برسیم. دیدیم \[ \forall i , j \in [y] \quad \rho_{xi} = \rho_{xj}\]
+			\(\rho_x = \rho_{\{0,1\}}(x)\) در نظر بگیرید
+			\begin{eqnarray*}
+				\rho_0 &=& \rho_1 = 1 \\
+				\rho_2 &=& \rho_4 = 0 \\
+				\rho_3 &=& (\frac{1}{4} + \frac{1}{4}) + \frac{1}{4}\rho_3 + \frac{1}{4}\rho_3  \\
+				\rho_5 &=& \frac{1}{5} + \frac{1}{5}\rho_3 + \frac{1}{5}\cancelto{0}{\rho_4} + \frac{2}{5}\rho_5 \\
+				&\Rightarrow& 
+				\begin{cases}
+					\frac{3}{4}\rho_3 - \frac{1}{4}\rho_5  = \frac{1}{2} \\
+					- \frac{1}{5}\rho_3 +\frac{3}{5}\rho_5 = \frac{1}{5}
+				\end{cases} 
+				\Rightarrow \quad \rho_3 = \frac{7}{8} \quad \rho_5 = \frac{5}{8}
+			\end{eqnarray*} 
+		} 
+		\end{itemize}
+	\end{problem}
+
+	\begin{problem} % 7
+    یک مؤلفه کامپیوتر دارای عمر فعال، اندازه‌گیری‌شده در واحدهای گسسته، است که یک متغیر تصادفی $T$ است، که در آن $P(T = k) = a_k$ برای $k = 1, 2, \dots$ است. فرض کنید با یک مؤلفه جدید شروع می‌کنیم و هر مؤلفه پس از خرابی با یک مؤلفه جدید جایگزین می‌شود. بگذارید $X_n$ سن مؤلفه در حال سرویس در زمان $n$ باشد. آنگاه $\{X_n\}$ یک زنجیره مارکوف موفقیت است.
+    \begin{itemize}
+        \item[(a)] احتمالات $p_i$ و $q_i$ را مشخص کنید.
+        \item[(b)] یک سیاست "تعویض برنامه‌ریزی‌شده" شامل تعویض مؤلفه پس از خرابی یا رسیدن به سن $N$، هرکدام که زودتر اتفاق بیفتد، است. احتمالات موفقیت $p$ و $q$ را تحت سیاست تعویض برنامه‌ریزی‌شده مشخص کنید.
+    \end{itemize} 
+	\end{problem}
+
+	\begin{problem} % 8
+    فرض کنید $X_n$ یک زنجیره مارکوف با احتمالات انتقال $P_{ij}$ باشد. یک «عامل تخفیف» $\beta$ با $0 < \beta < 1$ و یک تابع هزینه $c(i)$ داده شده است و می‌خواهیم هزینه کل تخفیف‌یافته مورد انتظار را از حالت $i$ محاسبه کنیم، که به‌صورت زیر تعریف می‌شود:
+    
+    \[
+    h_i = E\left[\sum_{n=0}^{\infty} \beta^n c(X_n) \ | \ X_0 = i\right]
+    \]
+    
+    با استفاده از تحلیل گام اول، نشان دهید که $h_i$ سیستم معادلات خطی زیر را ارضا می‌کند:
+    
+    \[
+    \forall i \in \mathcal{S} \qquad h_i = c(i) + \beta \sum_j P_{ij} h_j
+    \] 
+
+	\end{problem}
+
+	\begin{problem} % 9
+    یک زنجیره مارکوف که در ژنتیک ظاهر می‌شود دارای حالت‌های $\{0, 1, \dots\ , 2d\}$ و تابع انتقال زیر است:
+    
+    \[
+    P(x,y) = \binom{2d}{y}\left(\frac{x}{2d}\right)^y\left(1 - \frac{x}{2d}\right)^{2d-y}
+    \]
+    
+    $\rho_{\{0\}}(x)$ را برای $0 < x < 2d$ بیابید.
+
+	\end{problem}
+
+	\begin{problem} % 10
+    یک دستگاه جستجوی صفر به‌صورت زیر عمل می‌کند: اگر در زمان $n$ در حالت $j$ باشد، آنگاه در زمان $n + 1$، موقعیت آن با احتمال $\frac{1}{j}$ برابر $0$ است و موقعیت آن برابر $k$ (که $k$ یکی از حالت‌های $1, 2, \dots\ , j - 1$ است) با احتمال $\frac{2k}{j^2}$ است. زمان مورد انتظار تا اولین باری که دستگاه به صفر برسد را از حالت $m$ بیابید.
+	\end{problem}
+
+\paragraph{\textbf{سؤال امتیازی:}} $A$ و $B$ در حال بازی با سکه هستند. در هر دور، هر دو یک سکه پرتاب می‌کنند. اگر هر دو سکه روی یک طرف بیفتند، $A$ هر دو سکه را می‌برد. در غیر این صورت، $B$ هر دو سکه را می‌برد. فرض کنید $A$ دارای $m$ سکه و $B$ دارای $n$ سکه است. مقدار مورد انتظار تعداد بازی‌ها تا زمانی که یکی از آن‌ها تمام سکه‌های خود را از دست بدهد را بیابید.
 
 
 \end{document}
