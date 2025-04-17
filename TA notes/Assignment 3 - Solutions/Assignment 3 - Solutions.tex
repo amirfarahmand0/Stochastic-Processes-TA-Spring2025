@@ -273,10 +273,12 @@
 	{\color{blue}
 	با تحلیل قدم اول :
 	\begin{eqnarray*}
+		E[T_0 | X_0 = 0] = e_0 &=& 0 \\
 		E[T_0 | X_0 = m] = e_m &=& \sum_{k=1}^{m-1} \frac{2k}{m^2} E[T_0 | X_0 = m, X_1 = k] + \frac{1}{m} E[T_0 | X_0 = m, X_1 = 0] \\
 		&=& \sum_{k=1}^{m-1} \frac{2k}{m^2} \left(e_{k} + 1 \right) + \frac{1}{m} \\
 		&=& 1 + \sum_{k=1}^{m-1} \frac{2k}{m^2} e_k \\
 		e_m - e_{m-1} &=& \left(1 + \frac{2}{m^2} \sum_{k=1}^{m-2} k e_k + \frac{2(m-1)}{m^2}e_{m-1}\right) - \left(1  + \frac{2}{(m-1)^2} \sum_{k=1}^{m-2} k e_k\right) \\
+		e_m &=& \sum_{i=1}^m e_i - e_{i-1} \\
 	\end{eqnarray*}
 	}
 	\end{problem}
