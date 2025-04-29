@@ -1,0 +1,79 @@
+\documentclass[11pt, a4, twoside]{article}
+
+\usepackage{
+    amsmath,
+    amsfonts,
+    amssymb
+}
+
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{
+	tikz,
+	pgfplots
+}
+
+
+\ExplSyntaxOn
+\cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D
+\ExplSyntaxOff
+
+\usepackage{mathtools}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=[rgb]{0,0,0.6953125},
+	filecolor=[rgb]{0,0,0.6953125},      
+	urlcolor=[rgb]{0,0,0.6953125},
+	citecolor=[rgb]{0,0,0.6953125}
+}
+\newcommand{\hint}[1]{
+	\begin{flushleft}
+		\hyperlink{#1}{راهنمایی}
+	\end{flushleft}
+}
+\usepackage{UTProblemSet}
+\DefaultMathDigits
+
+\begin{document}
+			%%%%%%%%%%%%%%%%%%% سربرگ سند %%%%%%%%%%%%%%%%%%%
+	\pagestyle{empty}
+	\heading
+	{فرآیندهای تصادفی}
+	{دکتر صفری}
+	{نیمسال دوم 1403-1404}
+    {سه‌شنبه، 16 اردیبهشت 23:59}
+    {تمرین سری هفتم}
+	\inspiringQuotation
+	{\\We have to remember that what we observe is not nature in itself but nature exposed to our method of questioning.}
+	{Werner Heisenberg (1901-1976)}
+			%%%%%%%%%%%%%%%%%%% بخش سوالات %%%%%%%%%%%%%%%%%%%
+	\begin{problem}
+		خرابی در طول یک رشته طناب با نرخ $\lambda = 2$ در هر فوت رخ می‌دهند.
+
+		\begin{itemize}
+		\item[(الف)] احتمال اینکه در اولین فوت رشته طناب هیچ نقصی وجود نداشته باشد را محاسبه کنید.
+		\item[(ب)] احتمال شرطی اینکه در دومین فوت رشته طناب هیچ نقصی وجود نداشته باشد، با فرض اینکه در اولین فوت فقط یک نقص وجود داشته است، را محاسبه کنید.
+		\end{itemize}
+	\end{problem}
+
+	\begin{problem}			
+		فرض کنید $p_k = \Pr\{X = k\}$ تابع جرم احتمال مربوط به توزیع پواسون با پارامتر $\lambda$ باشد. نشان دهید که:
+		\(
+		p_0 = \exp\{-\lambda\}
+		\)
+		و اینکه $p_k$ به‌صورت بازگشتی توسط رابطه‌ی زیر محاسبه می‌شود:
+		\(
+		p_k = (\lambda / k) p_{k-1}
+		\)
+	\end{problem}
+	\begin{problem}
+		فرض کنید $X$ و $Y$ دو متغیر تصادفی مستقل با توزیع پواسون و پارامترهای $\alpha$ و $\beta$ به ترتیب باشند. توزیع شرطی $X$ را با فرض اینکه $N = X + Y = n$ تعیین کنید.
+	\end{problem}
+
+	\begin{problem}
+		یک فروشگاه ساعت ۸ صبح باز می‌شود. از ساعت ۸ تا ۱۰ صبح، مشتریان با نرخ پواسون برابر با ۴ نفر در ساعت وارد فروشگاه می‌شوند. بین ساعت ۱۰ صبح تا ۱۲ ظهر، نرخ ورود مشتریان برابر با ۸ نفر در ساعت است. از ساعت ۱۲ ظهر تا ۲ بعدازظهر، نرخ ورود مشتریان به‌صورت پیوسته از ۸ نفر در ساعت (در ۱۲ ظهر) تا ۱۰ نفر در ساعت (در ۲ بعدازظهر) افزایش می‌یابد؛ و از ساعت ۲ تا ۵ بعدازظهر، نرخ ورود مشتریان به‌صورت پیوسته از ۱۰ نفر در ساعت (در ۲ بعدازظهر) تا ۴ نفر در ساعت (در ۵ بعدازظهر) کاهش می‌یابد. 
+
+		توزیع احتمالاتی تعداد مشتریانی که در یک روز مشخص وارد فروشگاه می‌شوند را تعیین کنید
+	\end{problem}
+\end{document}
