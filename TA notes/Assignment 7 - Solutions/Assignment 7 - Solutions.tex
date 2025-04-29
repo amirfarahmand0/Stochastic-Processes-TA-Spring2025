@@ -1,0 +1,109 @@
+\documentclass[11pt, a4, twoside]{article}
+
+\usepackage{
+    amsmath,
+    amsfonts,
+    amssymb
+}
+
+\usepackage{cancel}
+
+\usepackage{UTSolution}
+
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{
+	tikz,
+	pgfplots
+}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%% سربرگ سند %%%%%%%%%%%%%%%%%%%
+	\pagestyle{empty}
+	\heading
+	{فرآیندهای تصادفی}
+	{دکتر صفری}
+	{نیمسال دوم 1403-1404}
+    {توسط امیرحسین فرهمند و پوریا عصاره‌ها}
+    {پاسخ تمرین سری سوم}
+	%%%%%%%%%%%%%%%%%%% بخش سوالات %%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+    خرابی در طول یک رشته طناب با نرخ $\lambda = 2$ در هر فوت رخ می‌دهند.
+
+    \begin{itemize}
+    \item[(الف)] احتمال اینکه در اولین فوت رشته طناب هیچ نقصی وجود نداشته باشد را محاسبه کنید.
+    {\\ \color{blue}
+    \(\{X(l)\}_{l>0}\) یک فرآیند تصادفی پواسون است. و طبیعی است که \(X(0) = 0\)
+    \[P(X(1) = 0) = P(X(1) - X(0) = 0) = e^{-2}\]
+    }
+    \item[(ب)] احتمال شرطی اینکه در دومین فوت رشته طناب هیچ نقصی وجود نداشته باشد، با فرض اینکه در اولین فوت فقط یک نقص وجود داشته است، را محاسبه کنید.
+    {\\ \color{blue}
+    خداروشکر می‌دانیم بازه های مجزا مستقل هستند.
+    \[P(X(2) - X(1) = 0 | X(1) = 1) = P(X(2) - X(1) = 0 | X(1) - X(0) = 1) = e^{-2}\]
+    }
+    \end{itemize}
+
+\end{problem}
+
+\begin{problem}			
+    فرض کنید $p_k = \Pr\{X = k\}$ تابع جرم احتمال مربوط به توزیع پواسون با پارامتر $\lambda$ باشد. نشان دهید که:
+    \(
+    p_0 = \exp\{-\lambda\}
+    \)
+    و اینکه $p_k$ به‌صورت بازگشتی توسط رابطه‌ی زیر محاسبه می‌شود:
+    \(
+    p_k = (\lambda / k) p_{k-1}
+    \)
+    {\\ \color{blue}
+    بدیهتا 
+    \begin{eqnarray*}
+        p_0 &=& P(X = 0) = e^{-\lambda} \\
+        p_{k-1} &=& P(X = k-1) = \frac{e^{-\lambda} \lambda^{k-1}}{(k-1)!} \\
+        p_k &=& (X = k) = \frac{e^{-\lambda} \lambda^k}{k!} \\
+        &\Rightarrow& p_k/p_{k-1} = \lambda/k \quad \Rightarrow \quad p_k = (\lambda/k)p_{k-1}
+    \end{eqnarray*}
+    }
+\end{problem}
+\begin{problem}
+    فرض کنید $X$ و $Y$ دو متغیر تصادفی مستقل با توزیع پواسون و پارامترهای $\alpha$ و $\beta$ به ترتیب باشند. توزیع شرطی $X$ را با فرض اینکه $N = X + Y = n$ تعیین کنید.
+    {\\ \color{blue}
+    \begin{eqnarray*}
+        P(X = x |N = n) &=& P(X = x  | X + Y = n) \\
+        &=& \frac{P(X = x , X + Y = n)}{P(X+Y = n)} \\
+        &=& \frac{P(Y = n - x, X = x)}{P(X + Y = n)} = \frac{P(Y = n - x)P(X = x)}{P(X + Y = n)}
+    \end{eqnarray*}
+    می‌توانید از دانش اسلاید های استفاده کنید که جمع پواسون ها میشود پواسون با جمع نرخ ها یا از احتمال کل
+    \begin{eqnarray*}
+        P(X + Y = n) &=& \sum_{i = 1}^n P(X + Y = n | X = i)P(X=i) \\
+        &=& \sum_{i = 1}^n P(Y = n - i | X = i)P(X = i) \\
+        &=& \sum_{i = 1}^n P(Y = n - i)P(X = i) \\
+        &=& e^{-\alpha -\beta} \sum_{i = 1}^n \frac{\beta^{n-i}\alpha^i}{i! (n-i!)} \\
+        &=& e^{-\alpha -\beta} \frac{1}{n!}\sum_{i = 1}^n \frac{n!}{i! (n-i!)}\beta^{n-i}\alpha^i \\
+        &=& e^{-\alpha -\beta} \frac{1}{n!}\left(\alpha + \beta\right)^n \\
+    \end{eqnarray*}
+    \[ P(X = x |N = n) = \frac{e^{-\beta-\alpha}\frac{\beta^{n-x}\alpha^x}{x!(n-x)!} }{e^{-\alpha -\beta} \frac{1}{n!}\left(\alpha + \beta\right)^n} = \binom{n}{x}\left(\frac{\beta}{\alpha+\beta}\right)^{n-x}\left(\frac{\alpha}{\alpha+\beta}\right)^x\]
+    }
+\end{problem}
+
+\begin{problem}
+    یک فروشگاه ساعت ۸ صبح باز می‌شود. از ساعت ۸ تا ۱۰ صبح، مشتریان با نرخ پواسون برابر با ۴ نفر در ساعت وارد فروشگاه می‌شوند. بین ساعت ۱۰ صبح تا ۱۲ ظهر، نرخ ورود مشتریان برابر با ۸ نفر در ساعت است. از ساعت ۱۲ ظهر تا ۲ بعدازظهر، نرخ ورود مشتریان به‌صورت پیوسته از ۸ نفر در ساعت (در ۱۲ ظهر) تا ۱۰ نفر در ساعت (در ۲ بعدازظهر) افزایش می‌یابد؛ و از ساعت ۲ تا ۵ بعدازظهر، نرخ ورود مشتریان به‌صورت پیوسته از ۱۰ نفر در ساعت (در ۲ بعدازظهر) تا ۴ نفر در ساعت (در ۵ بعدازظهر) کاهش می‌یابد. 
+
+    توزیع احتمالاتی تعداد مشتریانی که در یک روز مشخص وارد فروشگاه می‌شوند را تعیین کنید
+    {\\ \color{blue}
+    مسئله را یک فرآیند تصادفی پواسون ناهمگن در نظر بگیرید با نرخ متغییر:
+    \[\lambda(t) = \begin{cases}
+        0 & t < 8 \ , \ t > 17 \\
+        4 & 8 < t < 10 \\
+        8 & 10 < t < 12 \\
+        8 + (t - 12)  &  12 < t < 14 \\
+        10 - 2(t - 14)  & 14 < t < 17
+    \end{cases} \qquad , \quad X(t) - X(s) \ \sim \ \textrm{Poisson}(\Lambda(t) - \Lambda(s))\]
+    \[P(X(17) - X(8) = x) = e^\lambda \frac{\lambda^x}{x!} \quad , \quad \lambda = \Lambda(t) - \Lambda(s) = \int_8^{17} \lambda(t) \,dt \]
+    \[\lambda = 2 \times 4 + 2 \times 8 + \left(\frac{1}{2}t^2 - 4t\right)\Big|^{14}_{12} + \left(38t - t^2\right)\Big|^{17}_{14}\]
+    \[\lambda = 8 + 16 + 18 + 93 = 135 \]
+    }
+\end{problem}    
+
+
+\end{document}
